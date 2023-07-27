@@ -1,3 +1,16 @@
 .hello {
   color: red;
 }
+#corpo {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.tarefa {
+  display: flex;
+  gap: 5px;
+}
+#tarefas {
+  background-color: aqua;
+}

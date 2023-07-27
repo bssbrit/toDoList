@@ -1,6 +1,6 @@
 import "./style.css";
 import { tarefas, projeto, listaProjeto } from "./tarefas";
-
+import { tarefaDom, projetoDom } from "./domStuff";
 let tarefinha = new tarefas("olha", "olha la", 1, "12/12");
 let tarefinha2 = new tarefas("olha la", "olha la", 2, "12/12");
 
@@ -12,3 +12,10 @@ console.log(umprojeto);
 console.log(umprojeto.tarefas);
 listaProjeto.push(umprojeto);
 console.log(listaProjeto);
+
+let divTarefas = document.getElementById("tarefas");
+divTarefas.appendChild(tarefaDom(tarefinha));
+divTarefas.appendChild(tarefaDom(tarefinha2));
+
+let divProjetos = document.getElementById("projetos");
+divProjetos.appendChild(projetoDom(umprojeto));
