@@ -1,15 +1,14 @@
 import "./style.css";
-import { ola } from "./tarefas";
-import { projeto } from "./projeto";
-function component() {
-  const element = document.createElement("div");
+import { tarefas, projeto, listaProjeto } from "./tarefas";
 
-  element.innerHTML = "Hello";
-  element.classList.add("hello");
+let tarefinha = new tarefas("olha", "olha la", 1, "12/12");
+let tarefinha2 = new tarefas("olha la", "olha la", 2, "12/12");
 
-  return element;
-}
-let cuidarDochola = new projeto("Cuidar do Chola");
+const umprojeto = new projeto("Cuidar do Chola");
 
-ola();
-document.body.appendChild(component());
+umprojeto.tarefas.push(tarefinha);
+umprojeto.tarefas.push(tarefinha2);
+console.log(umprojeto);
+console.log(umprojeto.tarefas);
+listaProjeto.push(umprojeto);
+console.log(listaProjeto);
