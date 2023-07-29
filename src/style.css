@@ -9,8 +9,20 @@
 
 .tarefa {
   display: flex;
-  gap: 5px;
+  gap: 10px;
+}
+#projetos {
+  flex-grow: 1;
 }
 #tarefas {
   background-color: aqua;
+  flex-grow: 3;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+t h1 {
+  text-align: center;
 }
