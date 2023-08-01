@@ -1,3 +1,5 @@
+import { listaProjeto, projeto } from "./tarefas";
+import { projetoDom } from "./domStuff";
 export function projectForm() {
   const element = document.createElement("form");
   element.classList.add("projectForm");
@@ -7,10 +9,23 @@ export function projectForm() {
   element.appendChild(titulodoProjeto);
 
   const submitButton = document.createElement("button");
+  submitButton.classList.add("submitProject");
   submitButton.type = "submit";
   submitButton.textContent = "Submit";
-  element.appendChild(submitButton);
 
+  element.appendChild(submitButton);
+  let divProjetos = document.getElementById("projetos");
+  element.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const newProject = new projeto(titulodoProjeto.value);
+    listaProjeto.push(newProject);
+    console.log(listaProjeto);
+    for (let i = listaProjeto.length - 1; i < listaProjeto.length; i++) {
+      divProjetos.appendChild(projetoDom(listaProjeto[i]));
+    }
+    document.body.removeChild(element);
+  });
   return element;
 }
 

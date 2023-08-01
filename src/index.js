@@ -12,23 +12,29 @@ umprojeto.tarefas.push(tarefinha2);
 console.log(umprojeto);
 console.log(umprojeto.tarefas);
 listaProjeto.push(umprojeto);
-console.log(listaProjeto);
 
 let divTarefas = document.getElementById("tarefas");
 divTarefas.appendChild(tarefaDom(tarefinha));
 divTarefas.appendChild(tarefaDom(tarefinha2));
 divTarefas.appendChild(tarefaDom(tarefinha3));
 let divProjetos = document.getElementById("projetos");
-divProjetos.appendChild(projetoDom(umprojeto));
+//divProjetos.appendChild(projetoDom(umprojeto));
 
 let btnprojectForm = document.getElementById("criarProjeto");
 btnprojectForm.addEventListener("click", function () {
   document.body.appendChild(projectForm());
-  console.log("hi");
 });
 
+console.log(listaProjeto);
 let btnptaskForm = document.getElementById("tarefas");
 btnptaskForm.addEventListener("click", function () {
   document.body.appendChild(tarefaForm());
-  console.log("hi");
+  //console.log("hi");
 });
+
+for (let i = 0; i < listaProjeto.length; i++) {
+  divProjetos.appendChild(projetoDom(listaProjeto[i]));
+}
+/* 
+console.log(listaProjeto[0].name);
+ */
