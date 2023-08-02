@@ -18,9 +18,13 @@ export function projectForm() {
   element.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const newProject = new projeto(titulodoProjeto.value);
+    const newProject = new projeto(
+      titulodoProjeto.value,
+      listaProjeto.length + 1
+    );
     listaProjeto.push(newProject);
     console.log(listaProjeto);
+    console.log(newProject.index);
     for (let i = listaProjeto.length - 1; i < listaProjeto.length; i++) {
       divProjetos.appendChild(projetoDom(listaProjeto[i]));
     }

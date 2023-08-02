@@ -6,8 +6,9 @@ export const tarefas = function (name, description, priority, dueDate) {
   this.status = false;
 };
 
-export const projeto = function (name) {
+export const projeto = function (name, index) {
   this.name = name;
+  this.index = index;
   this.tarefas = [];
 };
 
