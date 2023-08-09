@@ -20,14 +20,15 @@ export function tarefaDom(objTarefa) {
 
 //criador div projeto
 
-export function projetoDom(objProjeto) {
+export function projetoDom(objProjeto, i) {
   const element = document.createElement("div");
   element.classList.add("projeto");
+  element.textContent = objProjeto.name;
+  /*  const titulo = document.createElement("H4");
+  titulo.innerHTML = objProjeto.name; */
 
-  const titulo = document.createElement("H4");
-  titulo.innerHTML = objProjeto.name;
+  element.setAttribute("dataIndex", objProjeto.index);
 
-  element.appendChild(titulo);
   return element;
 }
 

@@ -26,7 +26,7 @@ export function projectForm() {
     console.log(listaProjeto);
     console.log(newProject.index);
     for (let i = listaProjeto.length - 1; i < listaProjeto.length; i++) {
-      divProjetos.appendChild(projetoDom(listaProjeto[i]));
+      divProjetos.appendChild(projetoDom(listaProjeto[i], i));
     }
     document.body.removeChild(element);
   });

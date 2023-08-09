@@ -2,21 +2,16 @@ import "./style.css";
 import { tarefas, projeto, listaProjeto } from "./tarefas";
 import { tarefaDom, projetoDom } from "./domStuff";
 import { tarefaForm, projectForm } from "./buttons";
-let tarefinha = new tarefas("olha", "olha la", 1, "12/12");
+/* let tarefinha = new tarefas("olha", "olha la", 1, "12/12");
 let tarefinha2 = new tarefas("olha la", "olha la", 2, "12/12");
 let tarefinha3 = new tarefas("olha laaaaaaaaaa", "olha la", 2, "12/12");
-const umprojeto = new projeto("Cuidar do Chola");
+const umprojeto = new projeto("Cuidar do Chola", 1);
 
 umprojeto.tarefas.push(tarefinha);
 umprojeto.tarefas.push(tarefinha2);
-console.log(umprojeto);
-console.log(umprojeto.tarefas);
-listaProjeto.push(umprojeto);
 
-let divTarefas = document.getElementById("tarefas");
-divTarefas.appendChild(tarefaDom(tarefinha));
-divTarefas.appendChild(tarefaDom(tarefinha2));
-divTarefas.appendChild(tarefaDom(tarefinha3));
+listaProjeto.push(umprojeto);
+ */
 let divProjetos = document.getElementById("projetos");
 
 let btnprojectForm = document.getElementById("criarProjeto");
@@ -24,15 +19,24 @@ btnprojectForm.addEventListener("click", function () {
   document.body.appendChild(projectForm(btnprojectForm));
 });
 
-console.log(listaProjeto);
 let btnptaskForm = document.getElementById("tarefas");
 btnptaskForm.addEventListener("click", function () {
   document.body.appendChild(tarefaForm());
 });
 
-for (let i = 0; i < listaProjeto.length; i++) {
-  divProjetos.appendChild(projetoDom(listaProjeto[i]));
-}
+divProjetos.addEventListener("click", function (event) {
+  if (event.target.classList.contains("projeto")) {
+    console.log("Clicked on:", event.target.textContent);
+    console.log("Clicked on:", event.target.getAttribute("dataindex"));
+    let index = parseInt(event.target.getAttribute("dataindex")) - 1;
+    console.log(index);
+    console.log(listaProjeto);
+    console.log(listaProjeto[index]);
+    let tarefinha2 = new tarefas("olha la", "olha la", 2, "12/12");
+    // let tarefinha3 = new tarefas("olha laaaaaaaaaa", "olha la", 2, "12/12");
+    listaProjeto[index].tarefas.push(tarefinha2);
+    // listaProjeto[index].push(tarefinha3);
 
-let testeProjeto = document.querySelectorAll("projeto");
-console.log(testeProjeto);
+    listaProjeto[index].displayTarefas();
+  }
+});
